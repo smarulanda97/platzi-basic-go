@@ -2,6 +2,15 @@ package main
 
 import "fmt"
 
+func printMessage(message string) {
+	fmt.Println(message)
+}
+
+func calcSquareArea(sideSize int) (a, size int) {
+	area := sideSize * sideSize
+	return area, sideSize
+}
+
 func main() {
 	fmt.Println("Hello world")
 
@@ -69,4 +78,14 @@ func main() {
 
 	ageGateMessage := fmt.Sprintf("%s %d\n", message, ageGate)
 	fmt.Println(ageGateMessage)
+
+	// Functions
+	printMessage("This print is by function printMessage()")
+
+	var area, size int = calcSquareArea(5)
+	fmt.Printf("The area of the square with side size (%d) is: %d\n", size, area)
+
+	var area2, _ int = calcSquareArea(6)
+	fmt.Printf("The area of the square with side size (any) is: %d\n", area2)
+
 }
