@@ -57,4 +57,16 @@ func main() {
 	// Booleans:
 	//
 	// bool = true or false
+
+	// fmt package
+	//
+	// Println: print with ln at the end of the line
+	fmt.Println("This is a fmt.Println")
+	// Printf:
+	ageGate := 18
+	message := "The minimum age to enter to this website is: "
+	fmt.Printf("%s %d\n", message, ageGate)
+
+	ageGateMessage := fmt.Sprintf("%s %d\n", message, ageGate)
+	fmt.Println(ageGateMessage)
 }
