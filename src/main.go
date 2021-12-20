@@ -88,4 +88,19 @@ func main() {
 	var area2, _ int = calcSquareArea(6)
 	fmt.Printf("The area of the square with side size (any) is: %d\n", area2)
 
+	// Loops
+	//
+	// Basic for:
+	//
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+	}
+	//
+	// For while:
+	//
+	counter := 0
+	for counter < 5 {
+		fmt.Println(counter)
+		counter++
+	}
 }
