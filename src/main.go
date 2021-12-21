@@ -137,4 +137,19 @@ func main() {
 	for _, valor := range users3 {
 		fmt.Printf("users3=%s\n", valor)
 	}
+
+	// Maps
+	userData := make(map[string]string)
+	userData["first_name"] = "Santiago"
+	userData["last_name"] = "Marulanda"
+
+	fmt.Println(userData)
+	for i, value := range userData {
+		fmt.Println(i, value)
+	}
+
+	fmt.Println(userData["first_name"])
+	firstName, ok := userData["first_name"]
+
+	fmt.Println(firstName, ok)
 }
