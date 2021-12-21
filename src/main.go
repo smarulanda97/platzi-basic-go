@@ -16,6 +16,20 @@ type User struct {
 	username string
 }
 
+type Pc struct {
+	ram   int
+	disk  int
+	brand string
+}
+
+func (myPc Pc) getBrand() {
+	fmt.Println(myPc.brand)
+}
+
+func (myPc *Pc) duplicateRam() {
+	myPc.ram = myPc.ram * 2
+}
+
 func main() {
 	fmt.Println("Hello world")
 
@@ -161,4 +175,21 @@ func main() {
 	// Structs
 	user := User{email: "leidymejia17@hotmail.com", username: "leidymejia17"}
 	fmt.Println(user)
+
+	// Pointers
+	num1 := 50
+	num2 := &num1
+
+	fmt.Println(num2)
+	fmt.Println(*num2)
+
+	myPc := Pc{ram: 16, disk: 320, brand: "MSI"}
+	fmt.Println(myPc)
+	myPc.getBrand()
+
+	myPc.duplicateRam()
+	fmt.Println(myPc)
+
+	myPc.duplicateRam()
+	fmt.Println(myPc)
 }
