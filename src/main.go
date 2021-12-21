@@ -230,4 +230,10 @@ func main() {
 	myRectangle := rectangle{base: 2, height: 4}
 	fmt.Println(myRectangle)
 	calculate(myRectangle)
+
+	// Interfaces list
+	interfaceList := []interface{}{
+		"Santiago", 24, 1,
+	}
+	fmt.Println(interfaceList...)
 }
