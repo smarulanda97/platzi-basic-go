@@ -34,6 +34,31 @@ func (myPc Pc) String() string {
 	return fmt.Sprintf("Brand: %s, Ram: %d, Disk: %d", myPc.brand, myPc.ram, myPc.disk)
 }
 
+type figure interface {
+	area() float64
+}
+
+type square struct {
+	base float64
+}
+
+func (s square) area() float64 {
+	return s.base * s.base
+}
+
+type rectangle struct {
+	base   float64
+	height float64
+}
+
+func (r rectangle) area() float64 {
+	return r.base * r.height
+}
+
+func calculate(f figure) {
+	fmt.Println("Area: ", f.area())
+}
+
 func main() {
 	fmt.Println("Hello world")
 
@@ -196,4 +221,13 @@ func main() {
 
 	myPc.duplicateRam()
 	fmt.Println(myPc)
+
+	// Interfaces
+	mySquare := square{base: 2}
+	fmt.Println(mySquare)
+	calculate(mySquare)
+
+	myRectangle := rectangle{base: 2, height: 4}
+	fmt.Println(myRectangle)
+	calculate(myRectangle)
 }
