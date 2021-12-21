@@ -103,4 +103,38 @@ func main() {
 		fmt.Println(counter)
 		counter++
 	}
+
+	// Arrays and Slices
+	//
+	// Arrays:
+	//
+	var users [4]string
+	users[0] = "smarulanda9703@gmail.com"
+	users[1] = "santiagomm1997@gmail.com"
+
+	fmt.Println(users, len(users), cap(users))
+	//
+	// Slices:
+	//
+	users2 := []string{"smarulanda97@outlook.com", "leidymejia17@hotmail.com", "d.ana26@hotmail.com", "frasul301@hotmail.com"}
+	fmt.Println(users2, len(users2), cap(users2))
+	fmt.Println(users2[0])
+	fmt.Println(users2[:2])
+	fmt.Println(users2[2:3])
+	fmt.Println(users2[3:])
+
+	users2 = append(users2, "test@gmail.com")
+	fmt.Println(users2)
+
+	users3 := []string{"smarulanda9703@gmail.com", "santiagomm1997@gmail.com"}
+	users3 = append(users3, users2...)
+	fmt.Println(users3)
+
+	for i, valor := range users3 {
+		fmt.Printf("users3[%d]=%s\n", i, valor)
+	}
+	// If index is not necessary
+	for _, valor := range users3 {
+		fmt.Printf("users3=%s\n", valor)
+	}
 }
