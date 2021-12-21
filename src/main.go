@@ -11,6 +11,11 @@ func calcSquareArea(sideSize int) (a, size int) {
 	return area, sideSize
 }
 
+type User struct {
+	email    string
+	username string
+}
+
 func main() {
 	fmt.Println("Hello world")
 
@@ -152,4 +157,8 @@ func main() {
 	firstName, ok := userData["first_name"]
 
 	fmt.Println(firstName, ok)
+
+	// Structs
+	user := User{email: "leidymejia17@hotmail.com", username: "leidymejia17"}
+	fmt.Println(user)
 }
