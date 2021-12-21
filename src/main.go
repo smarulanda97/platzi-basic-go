@@ -30,6 +30,10 @@ func (myPc *Pc) duplicateRam() {
 	myPc.ram = myPc.ram * 2
 }
 
+func (myPc Pc) String() string {
+	return fmt.Sprintf("Brand: %s, Ram: %d, Disk: %d", myPc.brand, myPc.ram, myPc.disk)
+}
+
 func main() {
 	fmt.Println("Hello world")
 
