@@ -67,6 +67,10 @@ func say(message string, wg *sync.WaitGroup) {
 	fmt.Println(message)
 }
 
+func say2(message string, c chan<- string) {
+	c <- message
+}
+
 func main() {
 	fmt.Println("Hello world")
 
@@ -256,4 +260,11 @@ func main() {
 		fmt.Println(message)
 	}("Bye bye.")
 	wg.Wait()
+
+	// Channels
+	channel := make(chan string, 1)
+	fmt.Println("My name is: ")
+
+	go say2("Santiago Marulanda", channel)
+	fmt.Println(<-channel)
 }
