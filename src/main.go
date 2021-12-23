@@ -106,7 +106,7 @@ func main() {
 	// Integers:
 	//
 	// int = Depending of the OS (32 or 64 bits)
-	// int8 = 8bits = -128 a 127
+	// int8 = 8bits = 0 to 255
 	// int16 = 16bits = -2^15 to 2^15-1
 	// int32 = 32bits = -2^31 to 2^31-1
 	// int64 = 64bits = -2^63 to 2^63-1
