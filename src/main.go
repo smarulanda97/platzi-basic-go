@@ -71,6 +71,10 @@ func say2(message string, c chan<- string) {
 	c <- message
 }
 
+func message2(message string, c chan string) {
+	c <- message
+}
+
 func main() {
 	fmt.Println("Hello world")
 
@@ -267,4 +271,31 @@ func main() {
 
 	go say2("Santiago Marulanda", channel)
 	fmt.Println(<-channel)
+
+	// Range, Close and Select in channels
+	channel2 := make(chan string, 2)
+	channel2 <- "Hello"
+	channel2 <- "World"
+
+	fmt.Println(len(channel2), cap(channel2))
+	close(channel2)
+
+	for message := range channel2 {
+		fmt.Println(message)
+	}
+
+	email1 := make(chan string)
+	email2 := make(chan string)
+
+	go message2("Leidy", email1)
+	go message2("Mejia", email2)
+
+	for i := 0; i < 2; i++ {
+		select {
+		case message1 := <-email1:
+			fmt.Println("Received message from email1: ", message1)
+		case message2 := <-email2:
+			fmt.Println("Received message from email2: ", message2)
+		}
+	}
 }
