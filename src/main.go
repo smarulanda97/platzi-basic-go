@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+)
 
 func printMessage(message string) {
 	fmt.Println(message)
@@ -57,6 +60,11 @@ func (r rectangle) area() float64 {
 
 func calculate(f figure) {
 	fmt.Println("Area: ", f.area())
+}
+
+func say(message string, wg *sync.WaitGroup) {
+	wg.Done()
+	fmt.Println(message)
 }
 
 func main() {
@@ -236,4 +244,16 @@ func main() {
 		"Santiago", 24, 1,
 	}
 	fmt.Println(interfaceList...)
+
+	// Go routines
+	var wg sync.WaitGroup
+	fmt.Println("Hello")
+
+	wg.Add(2)
+	go say("World", &wg)
+	go func(message string) {
+		wg.Done()
+		fmt.Println(message)
+	}("Bye bye.")
+	wg.Wait()
 }
